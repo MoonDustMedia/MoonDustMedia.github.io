@@ -216,7 +216,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #7c5ce0 0%, #9775fa 30%, #b197fc 60%, #c4b5fd 100%);
+    background: linear-gradient(135deg, #4b1fb9 0%, #653bdf 30%, #7546ff 60%, #8463ff 100%);
     overflow: hidden;
     padding: 120px 24px 80px;
 }
@@ -249,6 +249,7 @@ body {
     background: #c4b5fd;
     bottom: -100px;
     left: -100px;
+    opacity: 0.2;
     animation: float 15s ease-in-out infinite reverse;
 }
 
@@ -260,6 +261,42 @@ body {
     left: 50%;
     opacity: 0.15;
     animation: float 25s ease-in-out infinite;
+}
+
+.hero-stars {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 3.5s ease-in-out infinite;
+    box-shadow: 0 0 6px 1px rgba(255,255,255,0.4);
+}
+
+.star-sm {
+    width: 2px;
+    height: 2px;
+    animation-duration: 4s;
+    box-shadow: 0 0 4px 1px rgba(255,255,255,0.3);
+}
+
+.star-lg {
+    width: 6px;
+    height: 6px;
+    animation-duration: 4.5s;
+    box-shadow: 0 0 10px 2px rgba(255,255,255,0.5);
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.9; transform: scale(1); }
 }
 
 @keyframes float {
@@ -275,18 +312,14 @@ body {
     text-align: center;
 }
 
-.hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 8px 20px;
-    border-radius: 100px;
-    color: var(--white);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    margin-bottom: 24px;
+.hero-logo {
+    display: block;
+    width: auto;
+    height: 351px;
+    max-height: 351px;
+    max-width: 80%;
+    margin: 0 auto 72px;
+    object-fit: contain;
     animation: fadeUp 0.8s ease both;
 }
 
@@ -502,12 +535,15 @@ h2 {
     align-items: center;
 }
 
-.ds-text h2 {
-    font-size: clamp(36px, 5vw, 56px);
-    background: linear-gradient(135deg, var(--purple-600), var(--purple-400));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.ds-logo {
+    display: block;
+    width: auto;
+    height: 108px;
+    max-height: 108px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: 8px;
 }
 
 .ds-tagline {
@@ -622,8 +658,8 @@ h2 {
 }
 
 .team-avatar {
-    width: 88px;
-    height: 88px;
+    width: 133px;
+    height: 133px;
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 20px;
@@ -665,11 +701,10 @@ h2 {
     justify-content: center;
 }
 
-.prev-logo {
-    font-weight: 800;
-    font-size: 16px;
-    color: var(--gray-300);
-    letter-spacing: -0.02em;
+.prev-logos-img {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* ─── CONTACT ─── */
@@ -685,6 +720,7 @@ h2 {
 
 .contact h2 {
     margin-bottom: 16px;
+    color: var(--purple-600);
 }
 
 .contact p {
